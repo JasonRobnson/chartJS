@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Chart.js Practice</title>
+</head>
+<body>
+    
+        <div class="container"> 
+                <canvas id="myChart">
+
+                </canvas>
+
+
+        </div>
+
+        <script>
+            let myChart = document.getElementById('myChart').getContext('2d');
+
+            //GLOBAL OPTIONS
+
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = 'Lato';
+        
+
+                //everything goes inside the object passed through
+            let JSchart = new Chart(myChart, {
+                type: 'line', // bar, horizonalBar, pie, line, doughnut, rada, polarArea available as well for types
+                data: {
+                    labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford' ],
+                    datasets:[{
+                        label: 'Population',
+                        data: [
+                            617594,
+                            18000,
+                            15300,
+                            10600,
+                            105300,
+                            95072
+                        ],
+                        backgroundColor: [
+                            'teal',
+                            'green',
+                            'orange',
+                            'red',
+                            'purple',
+                            'pink'
+                        ],
+                        borderWidth: 4, 
+                        borderColor: 'grey',
+                        hoverBorderWidth:3,
+                        hoverBorderColor: '#000'
+
+
+                    }]
+                },
+                options:{
+
+                    title: {
+                        display: true, 
+                        text: 'Largest Cities In Massachausetts',
+                        fontSize: 50
+                    },
+                    legend: {
+                        display: false, 
+                        position: 'right',
+                        labels: {
+                            fontColor:  '#000'
+                        }
+                     },
+                     layout: {
+                         padding: {
+                             left: 50, 
+                             right: 0, 
+                             bottom: 0, 
+                             top: 0
+                         },
+                         tooltips: {
+                             enable: true
+                         }
+                     }
+                 }
+            })
+        </script>
+    
+<!-- Check documentation for more stuff -->
+</body>
+</html>
